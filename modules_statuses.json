@@ -1,0 +1,8 @@
+{
+    "User": true,
+    "Roles": true,
+    "Settings": true,
+    "Pages": true,
+    "Media": true,
+    "Posts": true
+}

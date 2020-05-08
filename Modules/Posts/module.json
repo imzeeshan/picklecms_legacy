@@ -1,0 +1,13 @@
+{
+    "name": "Posts",
+    "alias": "posts",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Posts\\Providers\\PostsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
