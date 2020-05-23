@@ -19,7 +19,10 @@
 
         <div class="card">
             <div class="card-header">
-                <h4>List of all Users in the system. <a href="{{route('user.create')}}" class="btn btn-outline-primary">Add</a> </h4>
+                <h3>List of all Users in the system.
+                    <a href="{{route('user.create')}}" class="btn btn-outline-primary">Add</a>
+                    <a class="btn btn-primary" href="{{ route('user.download') }}">Download</a>
+                </h3>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">

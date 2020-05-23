@@ -15,6 +15,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','permission']], funct
         Route::get('/user/logout', 'UserController@logout')->name('user.logout');
         Route::resource('user', 'UserController');
         Route::get('/user/delete/{id}', 'UserController@destroy')->name('user.delete');
+        Route::get('/user/download', 'UserController@download')->name('user.download');
 
 });
 

@@ -12,6 +12,7 @@ use Modules\Roles\Entities\Permission;
 use Modules\User\Entities\User;
 use Modules\Roles\Entities\Role;
 use Modules\Settings\Entities\Setting;
+use Modules\User\Http\Exports\UsersExport;
 
 
 class UserController extends Controller {
@@ -34,6 +35,8 @@ class UserController extends Controller {
      */
     public function create() {
 
+        /* No Longer needed, since we introduced the permission middleware
+
         $permissions    =  Permission::where('role_id',Auth::user()->role->id)->get();
         $current_module = "user";
 
@@ -50,6 +53,7 @@ class UserController extends Controller {
                 }
             }
         }
+        */
 
         $roles = Role::all();
         return view('user::create', compact('roles'));
@@ -145,6 +149,15 @@ class UserController extends Controller {
     public function logout() {
         auth()->logout();
         return Redirect::route("home");
+    }
+
+    /**
+     * Download all users as an excel file.
+     *
+     * @return Excel
+     */
+    public function download() {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
 }
