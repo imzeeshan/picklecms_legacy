@@ -13,6 +13,7 @@ use Modules\User\Entities\User;
 use Modules\Roles\Entities\Role;
 use Modules\Settings\Entities\Setting;
 use Modules\User\Http\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class UserController extends Controller {
