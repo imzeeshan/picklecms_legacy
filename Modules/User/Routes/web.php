@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','permission']], function ($route) {
         Route::get('/user/download', 'UserController@download')->name('user.download');
+        Route::get('/user/import', 'UserController@import')->name('user.import');
         Route::get('/user/logout', 'UserController@logout')->name('user.logout');
         Route::resource('user', 'UserController');
         Route::get('/user/delete/{id}', 'UserController@destroy')->name('user.delete');

@@ -13,6 +13,7 @@ use Modules\User\Entities\User;
 use Modules\Roles\Entities\Role;
 use Modules\Settings\Entities\Setting;
 use Modules\User\Http\Exports\UsersExport;
+use Modules\User\Http\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -160,5 +161,13 @@ class UserController extends Controller {
     public function download() {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
+
+    public function import()
+    {
+        Excel::import(new UsersImport, 'users-import-template.xlsx');
+
+        return Redirect::route('user.index')->with('message', 'Users imported successfully!');
+    }
+
 
 }
