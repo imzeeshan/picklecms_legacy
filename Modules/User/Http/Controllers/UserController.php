@@ -15,6 +15,7 @@ use Modules\Settings\Entities\Setting;
 use Modules\User\Http\Exports\UsersExport;
 use Modules\User\Http\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Route;
 
 
 class UserController extends Controller {
@@ -24,11 +25,17 @@ class UserController extends Controller {
      * @return Response
      */
     public function index() {
-
+        $is_api     = \Request::is('api*');
         $site_title = Setting::where('key','Site Title')->get()->pluck('value')[0];
         $site_desc  = Setting::where('key','Site Description')->get()->pluck('value')[0];
-        $users    = User::with('role')->sortable()->paginate(10);
-        return view('user::index', compact('users','site_title','site_desc'));
+        $users      = User::with('role')->sortable()->paginate(10);
+
+        if($is_api){
+            return $users;
+        }
+        else {
+            return view('user::index', compact('users', 'site_title', 'site_desc'));
+        }
     }
 
     /**
@@ -81,7 +88,14 @@ class UserController extends Controller {
             $user->role_id = $request->role_id;
 
         $user->save();
-        return Redirect::route('user.index')->with('message', 'User ' . $request->name .'  has been added successfully!');
+
+        $is_api     = \Request::is('api*');
+        if($is_api){
+            return $user;
+        }
+        else {
+            return Redirect::route('user.index')->with('message', 'User ' . $request->name . '  has been added successfully!');
+        }
     }
 
     /**
@@ -90,7 +104,14 @@ class UserController extends Controller {
      * @return Response
      */
     public function show($id) {
-        return view('user::show');
+        $user       = User::with('role')->findOrFail($id);
+        $is_api     = \Request::is('api*');
+        if($is_api){
+            return $user;
+        }else {
+            return view('user::show', compact('user'));
+        }
+
     }
 
     /**
@@ -128,7 +149,13 @@ class UserController extends Controller {
 
         $user->save();
 
-        return Redirect::route('user.index')->with('message', 'User updated!');
+        $is_api     = \Request::is('api*');
+        if($is_api){
+            return $user;
+        }
+        else {
+            return Redirect::route('user.index')->with('message', 'User updated!');
+        }
     }
 
     /**
@@ -139,8 +166,17 @@ class UserController extends Controller {
     public function destroy($id) {
         $user = User::findOrFail($id);
         $user->delete();
+        $user->status="deleted";
 
-        return Redirect::route('user.index')->with('message', 'User deleted!');
+        $is_api     = \Request::is('api*');
+        if($is_api){
+            return response($user, 200)
+                   ->header('Content-Type', 'text/json');
+
+
+        }else {
+            return Redirect::route('user.index')->with('message', 'User deleted!');
+        }
     }
 
     /**
