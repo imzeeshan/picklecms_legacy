@@ -212,6 +212,9 @@ class UserController extends Controller {
             $token  = $user->createToken('login');
             $user->token = $token;
             return response($user, 200);
+        }else{
+            return response("User Not Found",404)
+                   ->header('Content-Type', 'text/json');
         }
     }
 
@@ -223,7 +226,11 @@ class UserController extends Controller {
             $user->tokens()->delete();
             $user->token = "";
             return response($user, 200);
+        }else{
+            return response("User Not Found",404)
+                ->header('Content-Type', 'text/json');
         }
+
     }
 
 
