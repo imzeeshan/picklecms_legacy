@@ -205,5 +205,26 @@ class UserController extends Controller {
         return Redirect::route('user.index')->with('message', 'Users imported successfully!');
     }
 
+    public function create_token(Request $request){
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            $user   = Auth::user();
+            $token  = $user->createToken('login');
+            $user->token = $token;
+            return response($user, 200);
+        }
+    }
+
+
+    public function revoke_token(Request $request){
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            $user   = Auth::user();
+            $user->tokens()->delete();
+            $user->token = "";
+            return response($user, 200);
+        }
+    }
+
 
 }
