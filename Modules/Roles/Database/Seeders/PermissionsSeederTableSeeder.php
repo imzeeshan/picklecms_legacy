@@ -43,6 +43,35 @@ class PermissionsSeederTableSeeder extends Seeder
         ]);
 
         DB::table('permissions')->insert([
+            'permissions' => 111,
+            'entity' => 'posts',
+            'entity_type' => 'module',
+            'role_id'     => 1
+        ]);
+
+        DB::table('permissions')->insert([
+            'permissions' => 111,
+            'entity' => 'media',
+            'entity_type' => 'module',
+            'role_id'     => 1
+        ]);
+
+        DB::table('permissions')->insert([
+            'permissions' => 111,
+            'entity' => 'categories',
+            'entity_type' => 'route',
+            'role_id'     => 1
+        ]);
+
+        DB::table('permissions')->insert([
+            'permissions' => 111,
+            'entity' => 'pages',
+            'entity_type' => 'module',
+            'role_id'     => 1
+        ]);
+
+
+        DB::table('permissions')->insert([
             'permissions' => 100,
             'entity' => 'user',
             'entity_type' => 'module',
