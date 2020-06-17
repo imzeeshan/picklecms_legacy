@@ -27,6 +27,15 @@ class UserDatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
+        DB::table('users')->insert([
+            'name' => "Editor",
+            'email' => "editor@picklecms.com",
+            'role_id' => 2,   // Editor Role
+            'password' => bcrypt('editor'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
 
         // $this->call("OthersTableSeeder");
     }
