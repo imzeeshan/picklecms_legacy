@@ -14,7 +14,7 @@ type Query {
     pages: [Page!]! @paginate(defaultCount: 10)
     page(id: ID @eq): Page @find
 }
-
+c
 type User {
     id: ID!
     name: String!

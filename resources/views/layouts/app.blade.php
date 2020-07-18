@@ -13,12 +13,11 @@
           <meta name="description" content="{!! $site_desc !!}"/>
     @endif
 
-
-
-
   <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('modules/fontawesome/css/all.min.css')}}">
+      <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{ asset('modules/fontawesome/css/all.min.css')}}">
+      <link rel="stylesheet" href="{{ asset('modules/bootstrap-social/bootstrap-social.css')}}">
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
@@ -26,11 +25,12 @@
 
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('img/logo-small.png')}}"/>
 
-      @yield('styles')
+    @yield('styles')
 
   </head>
 
   <body>
+  @if (\Request::is('admin*'))
     <div id="app">
       <div class="main-wrapper">
         <div class="navbar-bg"></div>
@@ -49,12 +49,22 @@
             </div>
 
             @yield('content')
-
           </section>
         </div>
+
          @include('layouts.footer')
       </div>
     </div>
+  @else
+      <div id="app">
+          <section class="section">
+              <div class="container mt-5">
+                  @yield('content')
+              </div>
+          </section>
+      </div>
+  @endif
+
 
     <!-- General JS Scripts -->
     <script src="{{ asset('modules/jquery.min.js')}}"></script>

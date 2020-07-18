@@ -4,8 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="login-brand">
+                    <img src="{{ asset('img/logo.png')}}" alt="logo" class="img-thumbnail">
+                </div>
+
+            <div class="card card-primary">
+                <div class="card-header"><h4>{{ __('Register') }}</h4></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -71,6 +75,14 @@
                     </form>
                 </div>
             </div>
+
+            <div class="mt-5 text-muted text-center">
+
+                Copyright © {{ env('APP_NAME') }} |  {{ date('Y') }}
+                <hr/>
+                Developed By <a href="https://linkedin.com/in/imzeeshan/">Zeeshan Chawdhary</a>
+            </div>
+
         </div>
     </div>
 </div>
