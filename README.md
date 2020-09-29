@@ -13,6 +13,11 @@ It uses the awesome Stisla dashboard theme and Laravel Modules to build a modula
 
 The book teaches the various aspects of CMS development.
 
+##Todo
+Removed lighthouse due to conflict. Check back later for GraphQL....
+
+      "nuwave/lighthouse": "^v4.16.3"
+      
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

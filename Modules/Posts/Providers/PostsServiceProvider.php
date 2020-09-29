@@ -90,7 +90,7 @@ class PostsServiceProvider extends ServiceProvider
     public function registerFactories()
     {
         if (! app()->environment('production') && $this->app->runningInConsole()) {
-            app(Factory::class)->load(module_path('Posts', 'Database/factories'));
+        //    app(Factory::class)->load(module_path('Posts', 'Database/factories'));
         }
     }
 

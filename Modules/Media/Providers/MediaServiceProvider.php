@@ -90,7 +90,7 @@ class MediaServiceProvider extends ServiceProvider
     public function registerFactories()
     {
         if (! app()->environment('production') && $this->app->runningInConsole()) {
-            app(Factory::class)->load(module_path('Media', 'Database/factories'));
+       //     app(Factory::class)->load(module_path('Media', 'Database/factories'));
         }
     }
 

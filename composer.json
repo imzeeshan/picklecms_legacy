@@ -13,14 +13,13 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kyslik/column-sortable": "^6.3",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/sanctum": "^2.4",
-        "laravel/ui": "^2.0",
+        "laravel/ui": "^3.0",
         "maatwebsite/excel": "^3.1",
-        "mll-lab/laravel-graphql-playground": "^2.1",
-        "nuwave/lighthouse": "^v4.16.3",
-        "nwidart/laravel-modules": "^7.1"
+        "nwidart/laravel-modules": "^7.1",
+        "mll-lab/laravel-graphql-playground": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
