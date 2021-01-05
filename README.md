@@ -17,6 +17,12 @@ The book teaches the various aspects of CMS development.
 Removed lighthouse due to conflict. Check back later for GraphQL....
 
       "nuwave/lighthouse": "^v4.16.3"
+
+##Tips 
+
+Run composer with 
+
+COMPOSER_MEMORY_LIMIT=-1
       
 ## License
 
