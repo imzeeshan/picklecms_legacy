@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^7.4||^8.0",
         "andreaselia/laravel-api-to-postman": "^1.2",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -22,7 +22,8 @@
         "magic-test/magic-test-laravel": "^0.2.0",
         "mll-lab/laravel-graphql-playground": "^2.1",
         "nuwave/lighthouse": "^4.17",
-        "nwidart/laravel-modules": "^8.2"
+        "nwidart/laravel-modules": "^8.2",
+        "wulfheart/pretty_routes": "^0.1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
